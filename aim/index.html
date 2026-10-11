@@ -70,6 +70,21 @@ header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-f
 .events-body .events{grid-template-columns:1fr}
 .events-cap{position:absolute;left:clamp(20px,3vw,48px);bottom:clamp(20px,3vw,40px);z-index:1;font-size:14px;color:var(--muted)}
 .events-cap b{display:block;color:var(--fg);font-size:16px}
+.hero-cap{position:absolute;right:clamp(20px,4vw,64px);bottom:clamp(18px,2.5vw,34px);z-index:1}
+.hero-cap b{color:var(--fg);font-size:16px}
+.team-main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px}
+.member{display:flex;gap:24px;align-items:flex-start;padding:28px}
+.member img{width:140px;height:140px;flex:0 0 140px}
+.member h3{font-size:22px}
+.member .role{color:var(--accent);font-weight:700;font-size:15px;margin:6px 0 10px}
+.member ul{margin:0;padding-left:20px;color:var(--muted);font-size:15px}
+.member li+li{margin-top:6px}
+.team-soon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:18px}
+.team-soon .person{flex-direction:row;text-align:left;align-items:center;gap:18px;padding:20px 24px}
+.ph-av{width:84px;height:84px;flex:0 0 84px}
+.ph-av{border-radius:50%;border:4px solid var(--accent);background:var(--surface2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='38' r='17' fill='%2346464B'/%3E%3Cpath d='M18 92c4-20 18-30 32-30s28 10 32 30z' fill='%2346464B'/%3E%3C/svg%3E") center/100% no-repeat}
+.person.soon .role{color:var(--dim)}
+.person.soon h3{color:var(--muted)}
 @media (min-width:1280px){.events-body .events{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* events */
 .events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
@@ -186,6 +201,8 @@ footer img{height:36px;width:auto}
   .onepl,.about,.contact,.hero-grid,.events{grid-template-columns:1fr}
   .events-ph{position:relative;width:100%;height:clamp(300px,70vw,460px);object-position:50% 20%;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent);mask-image:linear-gradient(to bottom,#000 60%,transparent)}
   .events-body{margin-left:0}
+  .hero-cap{position:static;padding:0 20px;margin:-34px 0 14px}
+  .team-main,.team-soon{grid-template-columns:1fr}
   .events-cap{position:static;padding:0 20px;margin:-30px 0 18px}
   .hero-top{display:block;min-height:0;padding-top:0}
   .hero-bg{position:relative;width:100%;height:clamp(320px,80vw,520px);object-position:70% 25%;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,#000 60%,transparent 100%)}
@@ -194,6 +211,8 @@ footer img{height:36px;width:auto}
   .about .photo{max-width:420px}
 }
 @media (max-width:640px){
+  .member{flex-direction:column;align-items:center;text-align:center}
+  .member ul{text-align:left}
   body{font-size:16px}
   .split,.g2,.prog{grid-template-columns:1fr}
   .who{columns:1}
@@ -219,6 +238,7 @@ footer img{height:36px;width:auto}
       <li><a href="#owners">Собственникам</a></li>
       <li><a href="#school">Школа</a></li>
       <li><a href="#about">О нас</a></li>
+      <li><a href="#team">Команда</a></li>
       <li><a href="#partners">Партнёры</a></li>
       <li><a href="#contacts">Контакты</a></li>
     </ul>
@@ -230,6 +250,7 @@ footer img{height:36px;width:auto}
 <section class="hero">
   <div class="hero-top">
     <img class="hero-bg" src="assets/andrey_hero.webp" alt="Андрей Фомин, основатель Ассоциации Интерим Менеджеров">
+    <div class="hero-cap"><b>Андрей Фомин</b></div>
     <div class="wrap" style="width:100%">
      <div class="hero-text">
     <div class="eyebrow">Ассоциация Интерим Менеджеров</div>
@@ -254,7 +275,7 @@ footer img{height:36px;width:auto}
 
 <section id="events" class="events-sec" style="padding-top:clamp(24px,3vw,40px)">
   <img class="events-ph" src="assets/ilgiz_events.webp" alt="Ильгиз Валинуров" loading="lazy">
-  <div class="events-cap"><b>Ильгиз Валинуров</b>хедхантер, спикер бизнес-завтрака</div>
+  <div class="events-cap"><b>Ильгиз Валинуров</b></div>
   <div class="wrap">
    <div class="events-body">
     <div class="eyebrow">Мероприятия АИМ</div>
@@ -433,6 +454,32 @@ footer img{height:36px;width:auto}
 </section>
 
 <!-- PARTNERS -->
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="eyebrow">Наша команда</div>
+    <h2>Партнёры Ассоциации</h2>
+    <p class="lead">Практики с многолетним опытом в топ-менеджменте и подборе руководителей.</p>
+    <div class="team-main">
+      <div class="card member reveal">
+        <img src="assets/fomin.png" alt="Андрей Фомин" loading="lazy">
+        <div><h3>Андрей Фомин</h3><div class="role">Основатель и управляющий партнёр АИМ</div>
+        <ul><li>22 года топ-менеджером в Magna, Visteon, Motherson, Boge</li><li>Управление бизнесом с выручкой 100+ млрд ₽</li><li>Интерим-проекты в России, Словакии, Германии, Сербии</li><li>Основатель Школы интерим-менеджеров</li></ul></div>
+      </div>
+      <div class="card member reveal">
+        <img src="assets/valinurov.png" alt="Ильгиз Валинуров" loading="lazy">
+        <div><h3>Ильгиз Валинуров</h3><div class="role">Партнёр АИМ, хедхантер</div>
+        <ul><li>30 000 собеседований с топ-менеджерами</li><li>Автор 12 книг о поиске персонала и карьере</li><li>Трижды карьерный консультант года</li><li>Преподаватель MBA</li></ul></div>
+      </div>
+    </div>
+    <div class="team-soon">
+      <div class="card person soon reveal"><div class="ph-av" role="img" aria-label="Фото партнёра появится позже"></div><div><h3>Партнёр 3</h3><div class="role">Скоро в команде</div></div></div>
+      <div class="card person soon reveal"><div class="ph-av" role="img" aria-label="Фото партнёра появится позже"></div><div><h3>Партнёр 4</h3><div class="role">Скоро в команде</div></div></div>
+      <div class="card person soon reveal"><div class="ph-av" role="img" aria-label="Фото партнёра появится позже"></div><div><h3>Партнёр 5</h3><div class="role">Скоро в команде</div></div></div>
+    </div>
+  </div>
+</section>
+
 <section id="partners">
   <div class="wrap">
     <div class="eyebrow">Партнёры и тренеры</div>

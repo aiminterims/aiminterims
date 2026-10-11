@@ -64,6 +64,13 @@ header{position:sticky;top:0;z-index:20;background:rgba(35,35,37,.92);backdrop-f
 .hero-bg{position:absolute;top:0;right:0;height:100%;width:min(54%,820px);object-fit:cover;object-position:60% 30%;pointer-events:none}
 .hero-text{position:relative;z-index:1;max-width:min(640px,56%)}
 .hero h1{font-size:clamp(34px,5.2vw,68px);font-weight:800;max-width:15ch}
+.events-sec{position:relative;overflow:hidden}
+.events-ph{position:absolute;left:0;top:0;height:100%;width:min(40%,620px);object-fit:cover;object-position:100% 18%;pointer-events:none}
+.events-body{position:relative;z-index:1;margin-left:min(38%,560px)}
+.events-body .events{grid-template-columns:1fr}
+.events-cap{position:absolute;left:clamp(20px,3vw,48px);bottom:clamp(20px,3vw,40px);z-index:1;font-size:14px;color:var(--muted)}
+.events-cap b{display:block;color:var(--fg);font-size:16px}
+@media (min-width:1280px){.events-body .events{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* events */
 .events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}
 .ev{display:flex;flex-direction:column;gap:14px;padding:30px}
@@ -177,6 +184,9 @@ footer img{height:36px;width:auto}
   .g4,.stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .g3{grid-template-columns:1fr}
   .onepl,.about,.contact,.hero-grid,.events{grid-template-columns:1fr}
+  .events-ph{position:relative;width:100%;height:clamp(300px,70vw,460px);object-position:50% 20%;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent);mask-image:linear-gradient(to bottom,#000 60%,transparent)}
+  .events-body{margin-left:0}
+  .events-cap{position:static;padding:0 20px;margin:-30px 0 18px}
   .hero-top{display:block;min-height:0;padding-top:0}
   .hero-bg{position:relative;width:100%;height:clamp(320px,80vw,520px);object-position:70% 25%;-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,#000 60%,transparent 100%)}
   .hero-text{max-width:none;margin-top:-8px}
@@ -242,8 +252,11 @@ footer img{height:36px;width:auto}
   </div>
 </section>
 
-<section id="events" style="padding-top:clamp(24px,3vw,40px)">
+<section id="events" class="events-sec" style="padding-top:clamp(24px,3vw,40px)">
+  <img class="events-ph" src="assets/ilgiz_events.webp" alt="Ильгиз Валинуров" loading="lazy">
+  <div class="events-cap"><b>Ильгиз Валинуров</b>хедхантер, спикер бизнес-завтрака</div>
   <div class="wrap">
+   <div class="events-body">
     <div class="eyebrow">Мероприятия АИМ</div>
     <h2>Приходите знакомиться</h2>
     <div class="events">
@@ -260,6 +273,7 @@ footer img{height:36px;width:auto}
         <a class="btn ghost" href="https://t.me/AndreyAFomin" target="_blank" rel="noopener">Записаться в поток</a>
       </div>
     </div>
+   </div>
   </div>
 </section>
 

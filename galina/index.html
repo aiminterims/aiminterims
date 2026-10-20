@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Галина Фомина</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Галина Фомина — гештальт-терапевт, парный терапевт, психолог, сексолог. Диагностика семейной системы, терапия пар, индивидуальная терапия онлайн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: асимметричная сетка; светлая чистая база, шалфейные и глубокие зелёные плоскости, терракота только акцентами */
+:root{
+  --bg:#fafaf7;          /* чистый тёплый белый */
+  --surface:#ffffff;
+  --ink:#1d2328;         /* графит */
+  --muted:#5b6469;
+  --line:#e6e6e0;
+  --terra:#d65f3a;       /* терракота: кнопки, акценты, полосы */
+  --terra-deep:#b44a28;
+  --on-terra:#ffffff;
+  --soft:#eaf0eb;        /* светлый шалфей */
+  --band:#1f3f3a;        /* глубокий изумрудно-зелёный */
+  --band-ink:#f3f7f4;
+  --blush:#fbe8df;       /* пудровый для мелких вставок */
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope","Segoe UI",system-ui,-apple-system,sans-serif;
+  --r:22px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121516;--surface:#1a1f20;--ink:#eef1ee;--muted:#a3aca8;--line:#2a3133;
+  --terra:#ee7d56;--terra-deep:#f59a79;--on-terra:#121516;--soft:#1d2624;
+  --band:#17312d;--band-ink:#eef5f1;--blush:#2c2220;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121516;--surface:#1a1f20;--ink:#eef1ee;--muted:#a3aca8;--line:#2a3133;
+  --terra:#ee7d56;--terra-deep:#f59a79;--on-terra:#121516;--soft:#1d2624;
+  --band:#17312d;--band-ink:#eef5f1;--blush:#2c2220;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media(min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.12;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,4.2vw,46px)}
+h3{font-size:19px;font-weight:500;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+.eyebrow{font:600 12px/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:60ch}
+section{padding-block:clamp(64px,9vw,120px)}
+.sec-head{display:grid;gap:16px;margin-bottom:clamp(36px,5vw,56px);max-width:760px}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font:600 16px/1 var(--body);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.btn-primary{background:var(--terra);color:var(--on-terra)}
+.btn-primary:hover{background:var(--terra-deep)}
+.btn-ghost{border-color:currentColor;color:var(--ink);background:transparent}
+.btn .arr{transition:transform .2s}.btn:hover .arr{transform:translateX(4px)}
+
+/* Шапка */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+.logo b{font:500 15px/1.1 var(--display);letter-spacing:-.01em;display:block}
+.logo small{font-size:12px;color:var(--muted)}
+nav.menu{display:none;gap:26px;font-size:15px;font-weight:500}
+nav.menu a{text-decoration:none;color:var(--muted)}nav.menu a:hover{color:var(--terra)}
+.top .btn{min-height:44px;padding:0 20px;font-size:14px}
+@media(min-width:980px){nav.menu{display:flex}}
+@media(max-width:520px){.top .btn span.long{display:none}.logo small{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(40px,6vw,80px) clamp(56px,7vw,96px)}
+.hero .wrap{display:grid;gap:clamp(32px,5vw,64px);align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr .95fr}}
+.hero-copy{display:grid;gap:26px;min-width:0}
+.hero h1{font-size:clamp(34px,5.4vw,64px);font-weight:300}
+.hero h1 em{font-style:normal;color:var(--terra);font-weight:400}
+.hero .roles{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;font-weight:600;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.chip:first-child{background:var(--blush);border-color:transparent}
+.hero .actions{display:flex;flex-wrap:wrap;gap:12px}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:var(--muted);padding-top:6px}
+.hero-facts span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--terra);margin-right:9px;vertical-align:2px}
+.hero-photo{position:relative;max-width:100%}
+.hero-photo::before{content:"";position:absolute;inset:8% -4% -6% 12%;border-radius:200px 200px var(--r) var(--r);background:repeating-linear-gradient(90deg,var(--terra) 0 14px,var(--terra-deep) 14px 16px);opacity:.9}
+.hero-photo img{position:relative;width:100%;aspect-ratio:4/3.6;object-fit:cover;object-position:45% 40%;border-radius:220px 220px var(--r) var(--r)}
+.hero-note{position:absolute;left:-4%;bottom:7%;max-width:250px;background:var(--surface);border-radius:16px;padding:16px 18px;box-shadow:0 18px 40px -18px rgba(60,20,10,.35);font-size:14px;line-height:1.45}
+.hero-note b{display:block;font:500 15px/1.3 var(--display);color:var(--terra);margin-bottom:4px}
+@media(max-width:560px){.hero-note{position:relative;left:auto;bottom:auto;margin:-40px 16px 0;max-width:none}}
+
+/* Боли */
+.pains{background:var(--soft)}
+.pain-grid{display:grid;gap:0;grid-template-columns:1fr}
+@media(min-width:760px){.pain-grid{grid-template-columns:1fr 1fr}}
+.pain{display:flex;gap:16px;padding:22px 4px;border-top:1px solid color-mix(in srgb,var(--ink) 12%,transparent);font-size:18px;line-height:1.45}
+.pain::before{content:"“";font:400 40px/0.8 var(--display);color:var(--terra);flex:none;width:26px}
+@media(min-width:760px){.pain:nth-child(odd){padding-right:32px}.pain:nth-child(even){padding-left:32px;border-left:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}}
+.pains .after{margin-top:40px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
+.pains .after p{font-size:19px;max-width:52ch}
+
+/* Направления */
+.dirs{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:720px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.dir{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:border-color .2s,transform .2s;display:grid;gap:14px;align-content:start}
+.dir:hover{border-color:var(--terra);transform:translateY(-3px)}
+.dir .tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.dir ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--muted);font-size:15.5px}
+.dir li{padding-left:20px;position:relative}
+.dir li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:1.5px;background:var(--terra)}
+
+/* Диагностика — полоса */
+.band{background:var(--band);color:var(--band-ink);position:relative;overflow:hidden}
+.band::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--terra);opacity:.18;filter:blur(10px);pointer-events:none}
+.band .wrap{position:relative;z-index:1;display:grid;gap:clamp(32px,5vw,64px);align-items:center}
+@media(min-width:900px){.band .wrap{grid-template-columns:1.1fr .9fr}}
+.band .eyebrow{color:var(--terra)}
+.band h2{color:var(--band-ink)}
+.band .lead{color:var(--band-ink);opacity:.88}
+.band-copy{display:grid;gap:22px;min-width:0}
+.gets{display:grid;gap:14px;margin:6px 0 0;padding:0;list-style:none}
+.gets li{display:flex;gap:14px;align-items:flex-start;font-size:17px}
+.gets li::before{content:"✓";flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:700;background:var(--terra);color:var(--on-terra)}
+.offer-card{background:var(--surface);color:var(--ink);position:relative;z-index:1;border-radius:var(--r);padding:32px;display:grid;gap:18px;box-shadow:0 30px 60px -30px rgba(30,8,3,.5)}
+.offer-card .price{font:300 clamp(38px,5vw,52px)/1 var(--display);letter-spacing:-.03em}
+.offer-card .price small{font:500 16px var(--body);color:var(--muted);letter-spacing:0}
+.offer-meta{display:grid;gap:10px;font-size:15px;color:var(--muted);border-block:1px solid var(--line);padding-block:16px}
+.offer-meta div{display:flex;justify-content:space-between;gap:12px}
+.offer-meta b{color:var(--ink);font-weight:600;text-align:right}
+.ph{border-bottom:1.5px dashed var(--terra);padding-bottom:1px}
+
+/* Обо мне */
+.about .wrap{display:grid;gap:clamp(32px,5vw,64px)}
+@media(min-width:900px){.about .wrap{grid-template-columns:.9fr 1.1fr;align-items:start}}
+.about-photos{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:end}
+.about-photos img{width:100%;border-radius:var(--r);object-fit:cover}
+.about-photos .p1{aspect-ratio:3/4.2;object-position:50% 20%;grid-row:span 2}
+.about-photos .p2{aspect-ratio:3/4;object-position:50% 12%}
+.about-photos figcaption{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.4}
+.about-copy{display:grid;gap:20px;min-width:0}
+.about-copy p{max-width:62ch}
+.creds{display:grid;gap:0;margin-top:10px;border-top:1px solid var(--line)}
+.cred{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15.5px}
+.cred span{color:var(--muted);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+
+/* Свобода */
+.freedom{padding-block:0}
+.freedom .wrap{display:grid;gap:0;border-radius:var(--r);overflow:hidden}
+.freedom-inner{display:grid;background:var(--blush);border-radius:var(--r);overflow:hidden}
+@media(min-width:820px){.freedom-inner{grid-template-columns:.85fr 1.15fr}}
+.freedom-inner img{width:100%;height:100%;min-height:360px;max-height:620px;object-fit:cover;object-position:50% 35%}
+.freedom-text{padding:clamp(32px,5vw,64px);display:grid;gap:20px;align-content:center}
+.freedom-text blockquote{margin:0;font:300 clamp(24px,3vw,34px)/1.25 var(--display);letter-spacing:-.02em}
+.freedom-text blockquote b{font-weight:400;color:var(--terra)}
+
+/* Шаги */
+.steps{display:grid;gap:18px;grid-template-columns:1fr;counter-reset:s}
+@media(min-width:720px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{display:grid;gap:12px;align-content:start;padding-top:22px;border-top:2px solid var(--terra)}
+.step .n{font:300 15px/1 var(--display);color:var(--terra)}
+.step p{color:var(--muted);font-size:15.5px}
+
+/* Цены */
+.prices{background:var(--soft)}
+.price-grid{display:grid;gap:18px;grid-template-columns:1fr}
+@media(min-width:860px){.price-grid{grid-template-columns:repeat(3,1fr)}}
+.tier{border:1px solid var(--line);border-radius:var(--r);padding:30px;display:grid;gap:16px;align-content:start;background:var(--surface)}
+.tier.hot{background:var(--band);color:var(--band-ink);border-color:var(--band)}
+.tier .t-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.tier .badge{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--terra);color:var(--on-terra)}
+.tier .amount{font:300 40px/1 var(--display);letter-spacing:-.03em}
+.tier .amount small{font:500 15px var(--body);opacity:.75;letter-spacing:0}
+.tier p{font-size:15.5px;opacity:.85}
+.tier .btn{margin-top:6px}
+.tier.hot .btn-primary{background:var(--terra);color:var(--on-terra)}
+
+.note{margin-top:22px;font-size:14px;color:var(--muted);max-width:70ch}
+
+/* FAQ */
+.faq{display:grid;gap:0;max-width:880px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font:500 18px/1.35 var(--body)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font:300 28px/1 var(--display);color:var(--terra);transition:transform .25s}
+details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+details p{padding:0 0 24px;color:var(--muted);max-width:68ch}
+
+/* Запись и контакты */
+.book .wrap{display:grid;gap:clamp(32px,5vw,56px)}
+@media(min-width:900px){.book .wrap{grid-template-columns:1fr 1fr;align-items:start}}
+.book-left{display:grid;gap:22px;min-width:0}
+.contacts{display:grid;gap:12px;margin-top:8px}
+.contact{display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;min-width:0}
+.contact .ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--blush);color:var(--terra)}
+.contact .ic svg{width:22px;height:22px}
+.contact .meta{min-width:0;flex:1}
+.contact .meta small{display:block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.contact .meta a,.contact .meta span{font-weight:600;font-size:17px;text-decoration:none;overflow-wrap:anywhere}
+.contact .meta a:hover{color:var(--terra)}
+.copy{flex:none;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:7px 12px;font:600 12px var(--body);cursor:pointer}
+.copy:hover{color:var(--terra);border-color:var(--terra)}
+.sample{font-size:13px;color:var(--muted)}
+form.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(24px,4vw,36px);display:grid;gap:16px}
+form.card h3{font-size:22px}
+.field{display:grid;gap:6px}
+.field label{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;font:500 16px var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.field textarea{min-height:96px;resize:vertical}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{font-size:14px;font-weight:600;padding:10px 16px;border:1px solid var(--line);border-radius:999px;cursor:pointer;text-transform:none;letter-spacing:0;color:var(--ink)}
+.seg input:checked+label{background:var(--terra);border-color:var(--terra);color:var(--on-terra)}
+.seg input:focus-visible+label{outline:3px solid var(--terra);outline-offset:2px}
+.fine{font-size:13px;color:var(--muted)}
+.done{background:var(--soft);border-radius:14px;padding:16px;font-size:15px}
+
+footer{border-top:1px solid var(--line);padding-block:36px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top"><img src="img/avatar.jpg" alt="Галина Фомина"><div><b>Галина Фомина</b><small>гештальт · пары · сексология</small></div></a>
+    <nav class="menu" aria-label="Разделы">
+      <a href="#directions">С чем работаю</a>
+      <a href="#diagnostics">Диагностика</a>
+      <a href="#about">Обо мне</a>
+      <a href="#price">Форматы</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="#book">Записаться <span class="long">на диагностику</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <div class="roles">
+          <span class="chip">Гештальт-терапевт</span><span class="chip">Парный терапевт</span><span class="chip">Психолог</span><span class="chip">Сексолог</span>
+        </div>
+        <h1>«Это я? Это он? <em>Это кризис?»</em></h1>
+        <p class="lead">Помогаю парам и тем, кто в отношениях, перестать гадать и увидеть, что на самом деле происходит. На первой встрече разберём вашу семейную систему, и вы уйдёте с одним конкретным шагом к пересборке.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#book">Записаться на диагностику <span class="arr">→</span></a>
+          <a class="btn btn-ghost" href="#diagnostics">Что будет на встрече</a>
+        </div>
+        <div class="hero-facts"><span>Онлайн из любой страны</span><span>Индивидуально и в паре</span><span>Конфиденциально</span></div>
+      </div>
+      <figure class="hero-photo" style="margin:0">
+        <img src="img/hero.jpg" alt="Галина Фомина в кабинете, в белом костюме, сидит в кресле">
+        <div class="hero-note"><b>Без оценок и «правильных» ответов</b>Можно говорить о близости, сексе и ссорах прямо. Здесь это нормально.</div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pains" aria-labelledby="pains-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Узнаёте себя</p>
+        <h2 id="pains-h">С этим ко мне приходят чаще всего</h2>
+      </div>
+      <div class="pain-grid">
+        <div class="pain">Мы ссоримся по одному и тому же сценарию, и я уже знаю, чем всё закончится.</div>
+        <div class="pain">Живём как соседи. Вроде всё нормально, но близости давно нет.</div>
+        <div class="pain">Пропало желание. Не понимаю, со мной что-то не так или с нами.</div>
+        <div class="pain">Была измена. Не знаю, можно ли это пережить и остаться вместе.</div>
+        <div class="pain">Хочу уйти и боюсь. Хочу остаться и тоже боюсь.</div>
+        <div class="pain">В каждых новых отношениях повторяется одно и то же, как у моих родителей.</div>
+      </div>
+      <div class="after">
+        <p>Если хотя бы одна фраза про вас, это не приговор отношениям. Это повод посмотреть на систему целиком.</p>
+        <a class="btn btn-primary" href="#book">Разобрать мою ситуацию <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="directions" aria-labelledby="dir-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Направления</p>
+        <h2 id="dir-h">Четыре формата работы</h2>
+        <p class="lead">Можно прийти одной или одному, можно вдвоём. Формат подберём на первой встрече.</p>
+      </div>
+      <div class="dirs">
+        <article class="dir">
+          <p class="tag">В паре</p>
+          <h3>Парная терапия</h3>
+          <p>Встречи для двоих, где у каждого есть голос. Учимся спорить без разрушения и слышать друг друга.</p>
+          <ul><li>повторяющиеся конфликты</li><li>кризис после рождения ребёнка</li><li>измена и восстановление доверия</li><li>решение остаться или расстаться бережно</li></ul>
+        </article>
+        <article class="dir">
+          <p class="tag">Деликатно</p>
+          <h3>Консультация сексолога</h3>
+          <p>Разговор о сексуальности без стыда и неловкости. Индивидуально или вместе с партнёром.</p>
+          <ul><li>снижение или разница в желании</li><li>напряжение и страх в близости</li><li>сложно говорить о своих желаниях</li><li>сексуальность после родов и кризисов</li></ul>
+        </article>
+        <article class="dir">
+          <p class="tag">Лично</p>
+          <h3>Индивидуальная гештальт-терапия</h3>
+          <p>Работа с тем, что происходит с вами здесь и сейчас: чувства, тело, способы быть в отношениях.</p>
+          <ul><li>тревога и эмоциональное выгорание</li><li>границы и созависимость</li><li>повторяющиеся сценарии в отношениях</li><li>расставание и жизнь после него</li></ul>
+        </article>
+        <article class="dir">
+          <p class="tag">Начать отсюда</p>
+          <h3>Диагностика семейной системы</h3>
+          <p>Одна встреча, после которой понятно, что происходит, где точка напряжения и с чего начать.</p>
+          <ul><li>карта отношений и ролей</li><li>сценарии из родительской семьи</li><li>один конкретный шаг на ближайшие недели</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="diagnostics" class="band" aria-labelledby="diag-h">
+    <div class="wrap">
+      <div class="band-copy">
+        <p class="eyebrow">Первый шаг</p>
+        <h2 id="diag-h">Диагностика семейной системы</h2>
+        <p class="lead">Вы перестанете гадать «это я, это он или это кризис» и увидите картину целиком. Без обязательств продолжать терапию.</p>
+        <ul class="gets">
+          <li>Разберём, как устроена ваша пара или семья: роли, правила, напряжение.</li>
+          <li>Найдём сценарии, которые пришли из родительских семей.</li>
+          <li>Получите один конкретный шаг по пересборке отношений.</li>
+          <li>Поймёте, какой формат дальше подходит: личная терапия, парная или сексология.</li>
+        </ul>
+      </div>
+      <div class="offer-card">
+        <p class="eyebrow">Диагностика</p>
+        <p class="price">80 <small>минут</small></p>
+        <div class="offer-meta">
+          <div>Формат<b>онлайн, Zoom или Telegram</b></div>
+          <div>Можно прийти<b>одной, одному или вдвоём</b></div>
+          <div>После встречи<b>шаг и рекомендации</b></div>
+        </div>
+        <a class="btn btn-primary" href="#book">Записаться на диагностику <span class="arr">→</span></a>
+        <p class="fine">Ответ в течение дня. Подберём удобное время с учётом часового пояса.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-photos">
+        <img class="p1" src="img/portrait.jpg" alt="Портрет Галины Фоминой в розовом жакете">
+        <figure style="margin:0">
+          <img class="p2" src="img/moto.jpg" alt="Галина Фомина рядом со своим мотоциклом">
+          <figcaption>Вне кабинета — дорога и мотоцикл</figcaption>
+        </figure>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">Обо мне</p>
+        <h2 id="about-h">Меня зовут Галина Фомина</h2>
+        <p class="lead">Я гештальт-терапевт, парный терапевт и сексолог. Работаю с отношениями во всех их слоях: от бытовых ссор до близости и сексуальности.</p>
+        <p>Мне важно, чтобы в кабинете можно было говорить прямо. О злости на партнёра, о том, что пропало желание, о мыслях развестись. Я не встаю ни на чью сторону в паре и не даю готовых рецептов. Мы вместе смотрим, как устроены ваши отношения и что в них можно поменять.</p>
+        <p>В жизни я люблю скорость и свободу: езжу на мотоцикле и знаю, что настоящий выбор всегда немного страшный. Это помогает мне быть рядом с людьми, которые стоят на развилке.</p>
+        <div class="creds">
+          <div class="cred"><span>Метод</span><div>Гештальт-терапия, системный взгляд на семью и пару</div></div>
+          <div class="cred"><span>Образование</span><div class="ph">Вуз и специальность, год</div></div>
+          <div class="cred"><span>Подготовка</span><div class="ph">Институт гештальта, ступени, сертификат</div></div>
+          <div class="cred"><span>Сексология</span><div class="ph">Программа подготовки по сексологии</div></div>
+          <div class="cred"><span>Практика</span><div><span class="ph">N лет</span>, регулярная супервизия и личная терапия</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="freedom" aria-label="Подход">
+    <div class="wrap">
+      <div class="freedom-inner">
+        <img src="img/svoboda.jpg" alt="Галина Фомина у большой надписи «Свобода» на фоне неба">
+        <div class="freedom-text">
+          <p class="eyebrow">Во что я верю</p>
+          <blockquote>Цель терапии не в том, чтобы сохранить отношения любой ценой. А в том, чтобы у вас появилась <b>свобода выбирать.</b></blockquote>
+          <p>Остаться и строить иначе. Или уйти бережно и без войны. Решение остаётся за вами, я помогаю увидеть его ясно.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="steps-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Как проходит работа</p>
+        <h2 id="steps-h">От заявки до изменений</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><p class="n">01</p><h3>Заявка</h3><p>Пишете в Telegram или заполняете форму. Пары нескольких слов о ситуации достаточно.</p></div>
+        <div class="step"><p class="n">02</p><h3>Диагностика</h3><p>Первая встреча 80 минут. Разбираем систему, вы получаете первый конкретный шаг.</p></div>
+        <div class="step"><p class="n">03</p><h3>План</h3><p>Решаем вместе, нужна ли дальше работа и в каком формате, как часто встречаться.</p></div>
+        <div class="step"><p class="n">04</p><h3>Регулярные встречи</h3><p>Обычно раз в неделю. Изменения в отношениях становятся заметны уже через несколько недель.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="price" class="prices" aria-labelledby="price-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Форматы встреч</p>
+        <h2 id="price-h">Выберите, с чего начать</h2>
+        <p class="lead">Стоимость назову в ответ на заявку, вместе с удобным временем.</p>
+      </div>
+      <div class="price-grid">
+        <div class="tier">
+          <div class="t-top"><h3>Индивидуальная сессия</h3></div>
+          <p class="amount">55 <small>минут</small></p>
+          <p>Гештальт-терапия или консультация сексолога для одного человека.</p>
+          <a class="btn btn-ghost" href="#book">Записаться</a>
+        </div>
+        <div class="tier hot">
+          <div class="t-top"><h3>Диагностика</h3><span class="badge">С чего начать</span></div>
+          <p class="amount">80 <small>минут</small></p>
+          <p>Разбор семейной системы и один конкретный шаг. Можно одной или вдвоём.</p>
+          <a class="btn btn-primary" href="#book">Записаться на диагностику</a>
+        </div>
+        <div class="tier">
+          <div class="t-top"><h3>Сессия для пары</h3></div>
+          <p class="amount">80 <small>минут</small></p>
+          <p>Парная терапия или совместная консультация сексолога.</p>
+          <a class="btn btn-ghost" href="#book">Записаться</a>
+        </div>
+      </div>
+      <p class="note">Перенести встречу можно не позднее чем за 24 часа.</p>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Вопросы</p>
+        <h2 id="faq-h">Частые вопросы</h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Партнёр не хочет идти к психологу. Есть ли смысл прийти одной?</summary><p>Да. Когда меняется один человек в системе, меняется и вся система. Многие пары начинают с индивидуальной работы одного партнёра, а второй присоединяется позже.</p></details>
+        <details><summary>Мне неловко говорить о сексе. Как это будет?</summary><p>Это нормальное чувство, с него часто всё и начинается. Мы идём в вашем темпе, и вы сами решаете, о чём и насколько подробно говорить.</p></details>
+        <details><summary>Вы будете на чьей-то стороне в паре?</summary><p>Нет. В парной терапии мой клиент — ваши отношения. Я слежу, чтобы у каждого было место и голос.</p></details>
+        <details><summary>Это конфиденциально?</summary><p>Да. Всё, что звучит на встречах, остаётся между нами. Супервизия проходит анонимно, без имён и деталей, по которым можно узнать человека.</p></details>
+        <details><summary>Сколько нужно встреч?</summary><p>Иногда достаточно диагностики и нескольких консультаций. Глубинные изменения в отношениях обычно требуют от 10 встреч. Точнее скажу после первой встречи.</p></details>
+        <details><summary>Как проходят онлайн-сессии?</summary><p>По видеосвязи в Zoom или Telegram. Нужен стабильный интернет и место, где вас никто не услышит. Работаю с клиентами в разных часовых поясах.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" class="book" aria-labelledby="book-h">
+    <div class="wrap">
+      <div class="book-left" id="contacts">
+        <p class="eyebrow">Запись и контакты</p>
+        <h2 id="book-h">Давайте сделаем первый шаг</h2>
+        <p class="lead">Напишите в удобный мессенджер или оставьте заявку. Отвечу в течение дня и предложу время.</p>
+        <div class="contacts">
+          <div class="contact">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+            <div class="meta"><small>Телефон, WhatsApp</small><span id="c-phone">+7 (916) 123-45-67</span></div>
+            <button class="copy" type="button" data-copy="c-phone">Копировать</button>
+          </div>
+          <div class="contact">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 4.5 2.8 11.7c-1 .4-1 1.8 0 2.1l4.7 1.5 1.8 5.6c.3.9 1.4 1.1 2 .4l2.6-2.7 4.9 3.6c.8.6 2 .1 2.2-.9L23.9 6c.3-1.1-.9-2-2.4-1.5zM9 15.5l9-7.3"/></svg></div>
+            <div class="meta"><small>Telegram</small><a href="https://t.me/galina_fomina_psy" target="_blank" rel="noopener">@galina_fomina_psy</a></div>
+          </div>
+          <div class="contact">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></div>
+            <div class="meta"><small>Instagram</small><a href="https://instagram.com/galina.fomina.psy" target="_blank" rel="noopener">@galina.fomina.psy</a></div>
+          </div>
+          <div class="contact">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5C3 5 4 4 5.5 4h13C20 4 21 5 21 6.5v11c0 1.5-1 2.5-2.5 2.5h-13C4 20 3 19 3 17.5z"/><path d="M7 9c.3 4 2.3 6 5.5 6.3V13c1.3.2 2.3 1.2 2.7 2.3h2C16.8 13.6 15.6 12.5 15 12c.8-.5 1.8-1.6 2.1-3h-1.9c-.4 1.3-1.4 2.3-2.2 2.5V9h-1.9v4.4C10 13 9.4 11.2 9.3 9z" fill="currentColor" stroke="none"/></svg></div>
+            <div class="meta"><small>ВКонтакте</small><a href="https://vk.com/galina.fomina.psy" target="_blank" rel="noopener">vk.com/galina.fomina.psy</a></div>
+          </div>
+          <div class="contact">
+            <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg></div>
+            <div class="meta"><small>Почта</small><span id="c-mail">galina.fomina.psy@yandex.ru</span></div>
+            <button class="copy" type="button" data-copy="c-mail">Копировать</button>
+          </div>
+        </div>
+        <p class="sample">Номер и аккаунты на странице — примеры, замените их на свои.</p>
+      </div>
+
+      <form class="card" id="book-form" novalidate>
+        <h3>Заявка на первую встречу</h3>
+        <div class="field">
+          <label for="f-name">Как к вам обращаться</label>
+          <input id="f-name" name="name" type="text" autocomplete="given-name" placeholder="Анна" required>
+        </div>
+        <div class="field">
+          <label for="f-contact">Telegram или телефон</label>
+          <input id="f-contact" name="contact" type="text" placeholder="@username или +7 900 000-00-00" required>
+        </div>
+        <div class="field">
+          <label id="f-format-l">Что вас интересует</label>
+          <div class="seg" role="radiogroup" aria-labelledby="f-format-l">
+            <input type="radio" name="format" id="fm1" value="Диагностика" checked><label for="fm1">Диагностика</label>
+            <input type="radio" name="format" id="fm2" value="Парная терапия"><label for="fm2">Для пары</label>
+            <input type="radio" name="format" id="fm3" value="Сексолог"><label for="fm3">Сексолог</label>
+            <input type="radio" name="format" id="fm4" value="Личная терапия"><label for="fm4">Личная терапия</label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg">Пара слов о ситуации (необязательно)</label>
+          <textarea id="f-msg" name="msg" placeholder="Можно коротко, подробности обсудим на встрече"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Отправить заявку <span class="arr">→</span></button>
+        <p class="fine">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Данные не передаются третьим лицам.</p>
+        <div class="done" id="f-done" hidden role="status"></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Галина Фомина · гештальт-терапевт, парный терапевт, сексолог</span>
+    <span>Не является медицинской услугой. В экстренной ситуации звоните 112.</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy), t=el.textContent.trim();
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Выделено';}
+    try{navigator.clipboard.writeText(t).then(function(){b.textContent='Скопировано';setTimeout(function(){b.textContent='Копировать'},1800)},sel)}catch(e){sel()}
+  });
+});
+var form=document.getElementById('book-form'), done=document.getElementById('f-done');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=form.name.value.trim(), contact=form.contact.value.trim();
+  if(!name||!contact){done.hidden=false;done.textContent='Укажите имя и контакт для связи, чтобы я могла ответить.';(name?form.contact:form.name).focus();return}
+  var fmt=form.querySelector('input[name=format]:checked').value;
+  done.hidden=false;
+  done.textContent='Спасибо, '+name+'! Заявка на «'+fmt+'» принята. Я свяжусь с вами по контакту '+contact+' в течение дня.';
+});
+</script>
+
+</body>
+</html>
